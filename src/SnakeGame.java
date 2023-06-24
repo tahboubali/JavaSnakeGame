@@ -3,7 +3,6 @@ import java.io.*;
 
 public class SnakeGame {
     static boolean running = false;
-    static char input;
     static Thread inputThread;
     static final int WIDTH = 50;
     static final int HEIGHT = WIDTH / 2;
@@ -26,17 +25,13 @@ public class SnakeGame {
         runGame();
     }
 
-
     static void initializeGame() {
-        newSnake();
         score = 0;
         running = true;
-
         inputThread = new Thread(() -> {
             try {
                 while (running) {
-                    input = (char) System.in.read();
-                    changeSnakeDirection(input);
+                    changeSnakeDirection((char) System.in.read());
                 }
                 Thread.currentThread().join();
             } catch (IOException | InterruptedException e) {
@@ -44,6 +39,7 @@ public class SnakeGame {
             }
         });
 
+        newSnake();
         generateNewApple();
         updateGrid();
         drawGrid();
