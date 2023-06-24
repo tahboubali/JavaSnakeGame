@@ -5,8 +5,8 @@ public class SnakeGame {
     static boolean running = false;
     static char input;
     static Thread inputThread;
-    static final int WIDTH = 100;
-    static final int HEIGHT = WIDTH / 3;
+    static final int WIDTH = 50;
+    static final int HEIGHT = WIDTH / 2;
     static ArrayList<int[]> snakePositions;
     static char[][] grid = new char[HEIGHT][WIDTH];
     static int applePosX = (int) (Math.random() * WIDTH);
